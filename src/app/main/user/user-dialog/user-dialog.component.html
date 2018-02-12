@@ -1,0 +1,95 @@
+<div align="center" style="vertical-align: inherit; padding: 10px;">
+  <mat-card-content class="push-bottom-none" style="margin: 10px">
+
+    <form #dataForm="ngForm">
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+                 #keyElement
+                 #keyControl="ngModel"
+                 placeholder="User Code"
+                 [(ngModel)]="data.key"
+                 [disabled]="disableSelect.value"
+                 name="key"
+                 maxlength="8"
+                 required>
+          <mat-hint align="start">
+                <span [hidden]="keyControl.pristine" class="tc-red-600">
+                  <span [hidden]="!keyControl.hasError('required')">Required</span>
+                </span>
+          </mat-hint>
+          <mat-hint align="end">{{keyElement.value?.length || 0}} / 8</mat-hint>
+        </mat-form-field>
+        <!--<mat-checkbox [formControl]="disableSelect"-->
+        <!--[ngModel]="data.disableSelect"-->
+        <!--(change)="disableSelectChange()"-->
+        <!--style="margin: 0px 5px;">Disable</mat-checkbox>-->
+      </div>
+
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+                 #nameElement
+                 #nameControl="ngModel"
+                 placeholder="Description Name"
+                 [(ngModel)]="data.name"
+                 name="name"
+                 maxlength="250"
+                 required>
+          <mat-hint align="start">
+                <span [hidden]="nameControl.pristine" class="tc-red-600">
+                  <span [hidden]="!nameControl.hasError('required')">Required</span>
+                </span>
+          </mat-hint>
+          <mat-hint align="end">{{nameElement.value?.length || 0}} / 250</mat-hint>
+        </mat-form-field>
+      </div>
+
+
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+                 #pinElement
+                 #pinControl="ngModel"
+                 placeholder="Pin"
+                 [(ngModel)]="data.pin"
+                 name="pin"
+                 maxlength="250">
+          <mat-hint align="start">
+            <!--<span [hidden]="name2Control.pristine" class="tc-red-600">-->
+            <!--<span [hidden]="!name2Control.hasError('required')">Required</span>-->
+            <!--</span>-->
+          </mat-hint>
+          <mat-hint align="end">{{pinElement.value?.length || 0}} / 250</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+                 #telElement
+                 #telControl="ngModel"
+                 placeholder="Telephone"
+                 [(ngModel)]="data.tel"
+                 name="tel"
+                 maxlength="250">
+          <mat-hint align="start">
+            <!--<span [hidden]="name2Control.pristine" class="tc-red-600">-->
+            <!--<span [hidden]="!name2Control.hasError('required')">Required</span>-->
+            <!--</span>-->
+          </mat-hint>
+          <mat-hint align="end">{{telElement.value?.length || 0}} / 250</mat-hint>
+        </mat-form-field>
+      </div>
+
+    </form>
+  </mat-card-content>
+  <mat-divider style="margin: 10px"></mat-divider>
+
+  <mat-card-footer style="margin: 0px 10px;align-content: center;">
+    <button mat-button class="text-upper" mat-dialog-close>Cancel</button>
+    <button mat-button class="text-upper" [disabled]="!dataForm.form.valid" color="primary"
+            (click)="saveData(dataForm.form)">Save
+    </button>
+  </mat-card-footer>
+</div>

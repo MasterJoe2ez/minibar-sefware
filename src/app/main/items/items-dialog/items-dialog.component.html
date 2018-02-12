@@ -1,0 +1,112 @@
+<div align="center" style="vertical-align: inherit; padding: 10px;">
+  <mat-card-content class="push-bottom-none" style="margin: 10px">
+
+    <form #dataForm="ngForm">
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+                 #codeElement
+                 #codeControl="ngModel"
+                 placeholder="Type Code"
+                 [(ngModel)]="data.code"
+                 [disabled]="disableSelect.value"
+                 name="code"
+                 maxlength="8"
+                 required>
+          <mat-hint align="start">
+                <span [hidden]="codeControl.pristine" class="tc-red-600">
+                  <span [hidden]="!codeControl.hasError('required')">Required</span>
+                </span>
+          </mat-hint>
+          <mat-hint align="end">{{codeElement.value?.length || 0}} / 8</mat-hint>
+        </mat-form-field>
+        <!--<mat-checkbox [formControl]="disableSelect"-->
+                      <!--[ngModel]="data.disableSelect"-->
+                      <!--(change)="disableSelectChange()"-->
+                      <!--style="margin: 0px 5px;">Disable</mat-checkbox>-->
+      </div>
+
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+                 #nameElement
+                 #nameControl="ngModel"
+                 placeholder="Description Name"
+                 [(ngModel)]="data.name"
+                 name="name"
+                 maxlength="250"
+                 required>
+          <mat-hint align="start">
+                <span [hidden]="nameControl.pristine" class="tc-red-600">
+                  <span [hidden]="!nameControl.hasError('required')">Required</span>
+                </span>
+          </mat-hint>
+          <mat-hint align="end">{{nameElement.value?.length || 0}} / 250</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+                 #amountElement
+                 #amountControl="ngModel"
+                 placeholder="Amount"
+                 [(ngModel)]="data.amount"
+                 name="amount"
+                 maxlength="250">
+          <mat-hint align="start">
+            <!--<span [hidden]="name2Control.pristine" class="tc-red-600">-->
+            <!--<span [hidden]="!name2Control.hasError('required')">Required</span>-->
+            <!--</span>-->
+          </mat-hint>
+          <mat-hint align="end">{{amountElement.value?.length || 0}} / 250</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+                 #costElement
+                 #costControl="ngModel"
+                 placeholder="Cost"
+                 [(ngModel)]="data.cost"
+                 name="cost"
+                 maxlength="250">
+          <mat-hint align="start">
+            <!--<span [hidden]="name2Control.pristine" class="tc-red-600">-->
+            <!--<span [hidden]="!name2Control.hasError('required')">Required</span>-->
+            <!--</span>-->
+          </mat-hint>
+          <mat-hint align="end">{{costElement.value?.length || 0}} / 250</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+                 #sellElement
+                 #sellControl="ngModel"
+                 placeholder="Sell"
+                 [(ngModel)]="data.sell"
+                 name="sell"
+                 maxlength="250">
+          <mat-hint align="start">
+            <!--<span [hidden]="name2Control.pristine" class="tc-red-600">-->
+            <!--<span [hidden]="!name2Control.hasError('required')">Required</span>-->
+            <!--</span>-->
+          </mat-hint>
+          <mat-hint align="end">{{sellElement.value?.length || 0}} / 250</mat-hint>
+        </mat-form-field>
+      </div>
+
+    </form>
+  </mat-card-content>
+  <mat-divider style="margin: 10px"></mat-divider>
+
+  <mat-card-footer style="margin: 0px 10px;align-content: center;">
+    <button mat-button class="text-upper" mat-dialog-close>Cancel</button>
+    <button mat-button class="text-upper" [disabled]="!dataForm.form.valid" color="primary"
+            (click)="saveData(dataForm.form)">Save
+    </button>
+  </mat-card-footer>
+</div>
